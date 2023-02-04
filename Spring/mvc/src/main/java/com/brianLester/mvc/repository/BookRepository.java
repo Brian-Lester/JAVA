@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import com.brianLester.mvc.models.Book;
 
-import antlr.collections.List;
+import java.util.List;
 
 @Repository
 public interface BookRepository extends CrudRepository<Book, Long>{

@@ -1,5 +1,7 @@
 package com.brianLester.mvc.controllers;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,5 +25,11 @@ public class BookController {
 		return"index.jsp";
 		
 	}
+    @GetMapping("/books")
+    public String index(Model model) {
+        List<Book> books = bookService.allBooks();
+        model.addAttribute("books", books);
+        return "allBooks.jsp";
+    }
 
 }
