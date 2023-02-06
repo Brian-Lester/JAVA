@@ -1,6 +1,7 @@
 package com.brianLester.burgerTracker.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -25,4 +26,8 @@ public class BurgerService {
         return burgerRepo.save(b);
 
 }
+    
+    public burgers findById(Long id) {
+    	return burgerRepo.findByid(id);
+    }
 }

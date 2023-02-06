@@ -15,4 +15,6 @@ public interface BurgerRepo extends CrudRepository<burgers, Long>{
     List<burgers> findByburgerNameContaining(String search);
     // this method counts how many titles contain a certain string
     Long countByburgerNameContaining(String search);
+    
+    burgers findByid(Long id);
 }

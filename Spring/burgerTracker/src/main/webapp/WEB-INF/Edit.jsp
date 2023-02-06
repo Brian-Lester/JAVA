@@ -7,60 +7,30 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Burger Tracker</title>
 <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
+<title>Insert title here</title>
 </head>
 <body>
-<h1>Burger Tracker</h1>
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<td scope="col">
-			Burger name
-			</td >
-			<td scope="col">
-			Restaurant name
-			</td>
-			<td scope="col">
-			Rating(out of 5)
-			</td>
-			<td scope="col">
-			Actions
-			</td>
-		</tr>
-	</thead>
-	<tbody>
-	<c:forEach var="burger" items="${burgers}">
-		<tr>
-			<td><c:out value="${burger.burgerName}"></c:out></td>
-			<td><c:out value="${burger.restName}"></c:out></td>
-			<td><c:out value="${burger.rating}"></c:out></td>
-			<td><a href="burger/${burger.id}" class="btn btn-primary">Edit</a></td>
-		</tr>
-	</c:forEach>
-	</tbody>
-</table>
-<h2>Add a Burger:</h2>
-<form:form action="/" method="post" modelAttribute="burger" >
+<form:form action="/burger/${burger.id}" method="post" modelAttribute="burger" >
 <form:errors path="restName" class="text-danger"/><br>
 <form:errors path="burgerName" class="text-danger"/><br>
 <form:errors path="rating" class="text-danger"/><br>
 <form:errors path="notes" class="text-danger"/><br>
 	<div class="form-group">
         <form:label path="burgerName">Burger Name</form:label>
-        <form:input path="burgerName" class="form-control"/>
+        <form:input path="burgerName" class="form-control" value="${burger.burgerName }"/>
 	</div>
 	<div class="form-group">
         <form:label path="restName">Restaurant Name</form:label>
-        <form:input path="restName" class="form-control"/>
+        <form:input path="restName" class="form-control" value="${burger.restName}"/>
     </div>
    	<div class="form-group">
         <form:label path="rating">Rating</form:label>
-        <form:input type="number" path="rating" class="form-control"/>
+        <form:input type="number" path="rating" class="form-control" value="${burger.rating}"/>
     </div>
    	<div class="form-group">
         <form:label path="notes">Notes:</form:label>
-        <form:textarea path="notes" class="form-control" rows="3"/>
+        <form:textarea path="notes" class="form-control" rows="3" value="${burger.notes}"/>
      </div>
         <button class= "btn btn-primary">Submit</button>
 </form:form>
