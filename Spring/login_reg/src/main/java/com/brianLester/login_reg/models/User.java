@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,6 +28,7 @@ public class User {
     
     @NotEmpty(message="Username is required!")
     @Size(min=3, max=30, message="Username must be between 3 and 30 characters")
+    @Pattern(regexp="^[a-zA-Z]+$",message="Username must be alphanumeric")
     private String userName;
     
     @NotEmpty(message="Email is required!")
